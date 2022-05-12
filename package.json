@@ -1,18 +1,18 @@
 {
-  "name": "yupana-monorepo",
+  "name": "yupana-contracts",
   "version": "1.0.0",
   "description": "Monorepo for Yupana protocol",
   "main": "scripts/cli.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/madfish-solutions/yupana-monorepo.git"
+    "url": "git+https://github.com/madfish-solutions/yupana-contracts.git"
   },
   "author": "Illia Likhoshva <likhoshva@madfish.solutions>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/madfish-solutions/yupana-monorepo/issues"
+    "url": "https://github.com/madfish-solutions/yupana-contracts/issues"
   },
-  "homepage": "https://github.com/madfish-solutions/yupana-monorepo#readme",
+  "homepage": "https://github.com/madfish-solutions/yupana-contracts#readme",
   "engines": {
     "node": ">=16",
     "yarn": ">=1.22.0"
