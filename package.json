@@ -1,0 +1,38 @@
+{
+  "name": "yupana-monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo for Yupana protocol",
+  "main": "scripts/cli.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madfish-solutions/yupana-monorepo.git"
+  },
+  "author": "Illia Likhoshva <likhoshva@madfish.solutions>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madfish-solutions/yupana-monorepo/issues"
+  },
+  "homepage": "https://github.com/madfish-solutions/yupana-monorepo#readme",
+  "engines": {
+    "node": ">=16",
+    "yarn": ">=1.22.0"
+  },
+  "private": true,
+  "workspaces": [
+    "price_feed",
+    "wTez",
+    "yupana"
+  ],
+  "scripts": {
+    "cli": "ts-node ./scripts/cli.ts",
+    "help": "yarn cli --help",
+    "start-sandbox": "yarn cli sandbox --up",
+    "stop-sandbox": "yarn cli sandbox --down",
+    "migrate": "yarn cli migrate",
+    "compile-pf": "yarn --cwd price_feed run compile-all",
+    "compile-y": "yarn --cwd yupana run compile",
+    "compile-wt": "yarn --cwd wTez run compile",
+    "compile-all-contracts": "yarn compile-wt && yarn compile-pf && yarn compile-y",
+    "test": "jest"
+  }
+}

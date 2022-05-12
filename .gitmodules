@@ -1,0 +1,9 @@
+[submodule "yupana"]
+	path = yupana
+	url = git@github.com:madfish-solutions/yupana-protocol-core.git
+[submodule "wTez"]
+	path = wTez
+	url = git@github.com:madfish-solutions/wTEZ-fa2.git
+[submodule "priceFeed"]
+	path = price_feed
+	url = git@github.com:madfish-solutions/yapfy.git
