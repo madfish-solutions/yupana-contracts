@@ -1,5 +1,5 @@
 import BigNumber from "bignumber.js";
-import { TezosToolkit, Operation } from "@taquito/taquito";
+import { TezosToolkit, Operation, MichelsonMap } from "@taquito/taquito";
 import { loadConfig } from "../config";
 import { FA2TokenType } from "../scripts/types";
 
@@ -20,41 +20,53 @@ module.exports = async (tezos: TezosToolkit) => {
     })
     .send();
   await op.confirmation();
+  var index = 0;
   for (const [tokenKey, tokenInfo] of Object.entries(config.TOKENS)) {
     let batch = tezos.contract.batch();
-    const tokenId = ((await contract.storage()) as any).storage.lastTokenId;
     const oracleConfig = config.ORACLES.find(
       (val) => val.type === tokenInfo.oracle.type
     );
     const updateAssetParams = {
-      tokenId,
+      tokenId: index,
       assetName: tokenInfo.oracle.name,
-      decimals: tokenInfo.oracle.decimals,
+      decimals: new BigNumber(10).pow(tokenInfo.oracle.decimals),
       oracle: oracleConfig.address.toString(),
     };
     batch = batch.withContractCall(
       priceFeedProxy.methodsObject.updateAsset(updateAssetParams)
     );
-    const isFa2Token = (tokenInfo.configuration.asset as unknown as FA2TokenType).fA2;
-    const assetParam = isFa2Token === undefined
-      ? tokenInfo.configuration.asset
-      : {
-        fA2: { // weird schema params... details `contract.methods.addMarket().schema`
-          2: isFa2Token.token_address,
-          3: isFa2Token.token_id,
-        },
+    const market = await (
+      (await contract.storage()) as unknown & {
+        storage: unknown & { tokens: MichelsonMap<number, any> };
+      }
+    ).storage.tokens.get(index);
+    if (market === undefined) {
+      const isFa2Token = (
+        tokenInfo.configuration.asset as unknown as FA2TokenType
+      ).fA2;
+      const assetParam =
+        isFa2Token === undefined
+          ? tokenInfo.configuration.asset
+          : {
+              fA2: {
+                // weird schema params... details `contract.methods.addMarket().schema`
+                2: isFa2Token.token_address,
+                3: isFa2Token.token_id,
+              },
+            };
+      const addMarketParams = {
+        ...tokenInfo.configuration,
+        interestRateModel:
+          tokenInfo.configuration.interestRateModel.address.toString(),
+        asset: assetParam,
       };
-    const addMarketParams = {
-      ...tokenInfo.configuration,
-      interestRateModel:
-        tokenInfo.configuration.interestRateModel.address.toString(),
-      asset: assetParam
-    };
-    batch = batch.withContractCall(
-      contract.methodsObject.addMarket(addMarketParams)
-    );
+      batch = batch.withContractCall(
+        contract.methodsObject.addMarket(addMarketParams)
+      );
+    }
     op = await batch.send();
     await op.confirmation();
     console.log(`Market for ${tokenKey} set`);
+    index = index + 1;
   }
 };

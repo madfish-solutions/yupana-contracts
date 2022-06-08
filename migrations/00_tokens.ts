@@ -23,6 +23,9 @@ module.exports = async (tezos: TezosToolkit) => {
     wTezAddress = new ContractAddress(predefinedTokens.WTEZ_TOKEN_ADDRESS);
   else {
     wTezStorage.admin = await tezos.signer.publicKeyHash();
+    wTezStorage.metadata = MichelsonMap.fromLiteral({
+      "": Buffer.from("ipfs://QmNnDGtk6TNuBaMEX7rGXE3kvtaW68wz3tPSzRgC1AMBR4", "ascii").toString("hex")
+    }) as MichelsonMap<string, string>
     wTezAddress = new ContractAddress(
       await migrate(tezos, wTezCode.michelson, wTezStorage)
     );

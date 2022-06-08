@@ -85,6 +85,7 @@ export enum OracleType {
   HARBINGER = 'harbinger',
   UBINETIC = 'ubinetic',
   CTEZ = 'ctez',
+  WTEZ = 'wtez',
 }
 
 export declare type OracleInfo = {

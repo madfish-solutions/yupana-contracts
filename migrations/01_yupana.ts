@@ -4,10 +4,14 @@ import { ContractAddress } from "../scripts/types";
 import { migrate, writeToContractsEnvironment } from "../scripts/utils";
 import { loadConfig } from "../config";
 const config = loadConfig();
-import { storage, metadata } from "../yupana/storage/yToken";
+import { storage } from "../yupana/storage/yToken";
 import { michelson as code } from "../yupana/build/yToken.json";
 import tokenLambdas from "../yupana/build/lambdas/tokenLambdas.json";
 import useLambdas from "../yupana/build/lambdas/yTokenLambdas.json";
+
+const metadata = MichelsonMap.fromLiteral({
+  "": Buffer.from("ipfs://QmY6epugNCXETZ2x8vj86zNwULsXx5hpDjQfPUeSf9YV1p", "ascii").toString("hex"),
+});
 
 module.exports = async (tezos: TezosToolkit) => {
   let contractAddress: ContractAddress;

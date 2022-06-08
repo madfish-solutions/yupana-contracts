@@ -1,4 +1,4 @@
-import { TezosToolkit } from "@taquito/taquito";
+import { TezosToolkit, MichelsonMap } from "@taquito/taquito";
 import { loadConfig } from "../config";
 import { loadInterestRates } from "../config/tokens/interestRateConfig";
 import { ContractAddress } from "../scripts/types";
@@ -16,6 +16,9 @@ module.exports = async (tezos: TezosToolkit) => {
     else {
       const interestRateStorage = {
         ...storage,
+        metadata: MichelsonMap.fromLiteral({
+          "": Buffer.from("ipfs://QmYao3D4WT3PcXUjD2goFoTXqVQh5JYbD34bGk1aKwvAvK", "ascii").toString("hex")
+        }),
         admin: await tezos.signer.publicKeyHash(),
         ...irConfigs[tokenKey],
       };

@@ -5,14 +5,12 @@ import {
   BytesString,
   ContractAddress,
   OracleInfo,
-  OracleType,
 } from "../scripts/types";
 import { migrate, writeToContractsEnvironment } from "../scripts/utils";
 import { michelson as code } from "../price_feed/build/router.json";
 import storage from "../price_feed/storage/router";
 import { loadConfig } from "../config";
 const config = loadConfig();
-import { prepareCtezBytes } from "../price_feed/tests/utils/prepare_ctez";
 
 module.exports = async (tezos: TezosToolkit) => {
   let contractAddress: ContractAddress;
@@ -24,13 +22,6 @@ module.exports = async (tezos: TezosToolkit) => {
     const parserBytes = config.ORACLES.reduce(
       (acc: { [key: string]: BytesString }, info: OracleInfo) => {
         if (info.address) {
-          if (info.type === OracleType.CTEZ) {
-            if (process.env.UBINETIC_ADDRESS === undefined)
-              throw new Error("Ubinetic Oracle must be set.");
-            process.chdir("./price_feed");
-            prepareCtezBytes(process.env.UBINETIC_ADDRESS, true);
-            process.chdir("..");
-          }
           acc[info.name] = fs
             .readFileSync(
               path.resolve(
@@ -49,7 +40,10 @@ module.exports = async (tezos: TezosToolkit) => {
     storage.parserBytes = MichelsonMap.fromLiteral(parserBytes) as MichelsonMap<
       string,
       string
-    >;
+      >;
+    storage.metadata = MichelsonMap.fromLiteral({
+      "": Buffer.from("ipfs://QmZTCZ4phYTLfCGs2cvCsVvcSEqpvGFbtze3qAVzbW4M73", "ascii").toString("hex")
+    })
     contractAddress = new ContractAddress(await migrate(tezos, code, storage));
     const priceFeedProxy = await tezos.contract.at(contractAddress.toString());
     for (const oracle of config.ORACLES) {

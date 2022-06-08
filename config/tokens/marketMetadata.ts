@@ -10,18 +10,7 @@ const marketMetadata: { [token: string]: MichelsonMap<string, BytesString> } = {
     is_boolean_amount: Buffer.from("false").toString("hex"),
     should_prefer_symbol: Buffer.from("false").toString("hex"),
     thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
-    ).toString("hex"),
-  }) as MichelsonMap<string, BytesString>,
-  kUSD: MichelsonMap.fromLiteral({
-    symbol: Buffer.from("y-kUSD").toString("hex"),
-    name: Buffer.from("Yupana kUSD").toString("hex"),
-    decimals: Buffer.from("18").toString("hex"),
-    is_transferable: Buffer.from("true").toString("hex"),
-    is_boolean_amount: Buffer.from("false").toString("hex"),
-    should_prefer_symbol: Buffer.from("false").toString("hex"),
-    thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
+      "ipfs://QmZsAdE5tW5ybx9wqScQtBgGCL95S2gcmRbqgDZDfoTfuf"
     ).toString("hex"),
   }) as MichelsonMap<string, BytesString>,
   cTez: MichelsonMap.fromLiteral({
@@ -32,29 +21,18 @@ const marketMetadata: { [token: string]: MichelsonMap<string, BytesString> } = {
     is_boolean_amount: Buffer.from("false").toString("hex"),
     should_prefer_symbol: Buffer.from("false").toString("hex"),
     thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
+      "ipfs://QmdWLKmesxYBJhzFnEZzNRamNnexvPZvkWuKYzUFXnfJxr"
     ).toString("hex"),
   }) as MichelsonMap<string, BytesString>,
-  tzBTC: MichelsonMap.fromLiteral({
-    symbol: Buffer.from("y-tzBTC").toString("hex"),
-    name: Buffer.from("Yupana tzBTC").toString("hex"),
-    decimals: Buffer.from("8").toString("hex"),
+  kUSD: MichelsonMap.fromLiteral({
+    symbol: Buffer.from("y-kUSD").toString("hex"),
+    name: Buffer.from("Yupana kUSD").toString("hex"),
+    decimals: Buffer.from("18").toString("hex"),
     is_transferable: Buffer.from("true").toString("hex"),
     is_boolean_amount: Buffer.from("false").toString("hex"),
     should_prefer_symbol: Buffer.from("false").toString("hex"),
     thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
-    ).toString("hex"),
-  }) as MichelsonMap<string, BytesString>,
-  uDEFI: MichelsonMap.fromLiteral({
-    symbol: Buffer.from("y-uDEFI").toString("hex"),
-    name: Buffer.from("Yupana uDEFI").toString("hex"),
-    decimals: Buffer.from("12").toString("hex"),
-    is_transferable: Buffer.from("true").toString("hex"),
-    is_boolean_amount: Buffer.from("false").toString("hex"),
-    should_prefer_symbol: Buffer.from("false").toString("hex"),
-    thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
+      "ipfs://QmdRqtqaUzCqnpsxWNy6hujsV2aqrDr1eVD2AJyGjwZbmn"
     ).toString("hex"),
   }) as MichelsonMap<string, BytesString>,
   uUSD: MichelsonMap.fromLiteral({
@@ -65,7 +43,18 @@ const marketMetadata: { [token: string]: MichelsonMap<string, BytesString> } = {
     is_boolean_amount: Buffer.from("false").toString("hex"),
     should_prefer_symbol: Buffer.from("false").toString("hex"),
     thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
+      "ipfs://QmVar6imuHapwci1ttJu21yDdbqfwDjHQHLoLuqHPLx3AG"
+    ).toString("hex"),
+  }) as MichelsonMap<string, BytesString>,
+  tzBTC: MichelsonMap.fromLiteral({
+    symbol: Buffer.from("y-tzBTC").toString("hex"),
+    name: Buffer.from("Yupana tzBTC").toString("hex"),
+    decimals: Buffer.from("8").toString("hex"),
+    is_transferable: Buffer.from("true").toString("hex"),
+    is_boolean_amount: Buffer.from("false").toString("hex"),
+    should_prefer_symbol: Buffer.from("false").toString("hex"),
+    thumbnailUri: Buffer.from(
+      "ipfs://QmVb4kAmpbwS1beqymjsXGerSPXinVjNqbD4cRWhdjcdzb"
     ).toString("hex"),
   }) as MichelsonMap<string, BytesString>,
   uBTC: MichelsonMap.fromLiteral({
@@ -76,9 +65,20 @@ const marketMetadata: { [token: string]: MichelsonMap<string, BytesString> } = {
     is_boolean_amount: Buffer.from("false").toString("hex"),
     should_prefer_symbol: Buffer.from("false").toString("hex"),
     thumbnailUri: Buffer.from(
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
-    ).toString("hex"),
-  }) as MichelsonMap<string, BytesString>,
+      "ipfs://QmUKZvcriehsUPQSQ8shZtzWnoxSN8eysg1rUZy7ECCrUR"
+      ).toString("hex"),
+    }) as MichelsonMap<string, BytesString>,
+  //   uDEFI: MichelsonMap.fromLiteral({
+  //     symbol: Buffer.from("y-uDEFI").toString("hex"),
+  //     name: Buffer.from("Yupana uDEFI").toString("hex"),
+  //     decimals: Buffer.from("12").toString("hex"),
+  //     is_transferable: Buffer.from("true").toString("hex"),
+  //     is_boolean_amount: Buffer.from("false").toString("hex"),
+  //     should_prefer_symbol: Buffer.from("false").toString("hex"),
+  //     thumbnailUri: Buffer.from(
+  //       "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
+  //   ).toString("hex"),
+  // }) as MichelsonMap<string, BytesString>,
 };
 
 export default marketMetadata;
