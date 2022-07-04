@@ -10,7 +10,10 @@ import tokenLambdas from "../yupana/build/lambdas/tokenLambdas.json";
 import useLambdas from "../yupana/build/lambdas/yTokenLambdas.json";
 
 const metadata = MichelsonMap.fromLiteral({
-  "": Buffer.from("ipfs://QmY6epugNCXETZ2x8vj86zNwULsXx5hpDjQfPUeSf9YV1p", "ascii").toString("hex"),
+  "":  Buffer.from(
+    "ipfs://QmbsfuxZvYVySHL3cidkLLKUUtE1whwwPtfMY4BndKqfZE",
+    "ascii"
+  ).toString("hex"),
 });
 
 module.exports = async (tezos: TezosToolkit) => {

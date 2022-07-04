@@ -29,6 +29,13 @@ export const loadOraclesInfo = (env = process.env): OracleInfo[] => [
     precision: 1000000,
     timestampLimit: 15000,
   },
+  {
+    name: "ubinetic_old",
+    address: (env.UBINETIC_LEGACY_ADDRESS || undefined) as ContractAddress,
+    type: OracleType.UBINETIC_LEGACY,
+    precision: 1000000,
+    timestampLimit: 15000,
+  },
 ];
 
 export default loadOraclesInfo();

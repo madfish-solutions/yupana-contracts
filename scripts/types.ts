@@ -84,6 +84,7 @@ export declare type YupanaConfiguration = {
 export enum OracleType {
   HARBINGER = 'harbinger',
   UBINETIC = 'ubinetic',
+  UBINETIC_LEGACY = 'ubinetic_old',
   CTEZ = 'ctez',
   WTEZ = 'wtez',
 }

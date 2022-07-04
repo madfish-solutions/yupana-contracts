@@ -17,7 +17,10 @@ module.exports = async (tezos: TezosToolkit) => {
       const interestRateStorage = {
         ...storage,
         metadata: MichelsonMap.fromLiteral({
-          "": Buffer.from("ipfs://QmYao3D4WT3PcXUjD2goFoTXqVQh5JYbD34bGk1aKwvAvK", "ascii").toString("hex")
+          "": Buffer.from(
+            "ipfs://QmXiHMXWNsKyzD1mz1BdKigre2ZAiHbDzhCCW8zyKoEdY7",
+            "ascii"
+          ).toString("hex")
         }),
         admin: await tezos.signer.publicKeyHash(),
         ...irConfigs[tokenKey],

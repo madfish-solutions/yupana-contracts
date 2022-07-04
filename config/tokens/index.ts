@@ -67,8 +67,8 @@ export const loadTokens = (env = process.env): { [token: string]: TokenInfo } =>
     },
     uUSD: {
       oracle: {
-        type: OracleType.UBINETIC,
-        name: "XTZUSD",
+        type: OracleType.UBINETIC_LEGACY,
+        name: "XTZ",
         decimals: 12,
       },
       configuration: {
@@ -87,6 +87,28 @@ export const loadTokens = (env = process.env): { [token: string]: TokenInfo } =>
         liquidReserveRateF: 15000000000000000,
       },
     },
+    // uUSD: {
+    //   oracle: {
+    //     type: OracleType.UBINETIC,
+    //     name: "XTZUSD",
+    //     decimals: 12,
+    //   },
+    //   configuration: {
+    //     interestRateModel: interestRates.uUSD,
+    //     token_metadata: marketMetadata.uUSD,
+    //     asset: {
+    //       fA2: {
+    //         token_address: (process.env.YOUVES_TOKEN_ADDRESS || undefined) as ContractAddress,
+    //         token_id: "0",
+    //       },
+    //     },
+    //     collateralFactorF: 0,
+    //     reserveFactorF: 400000000000000000,
+    //     maxBorrowRate: 5000000000000,
+    //     threshold: 550000000000000000,
+    //     liquidReserveRateF: 15000000000000000,
+    //   },
+    // },
 
     tzBTC: {
       oracle: {
@@ -109,8 +131,8 @@ export const loadTokens = (env = process.env): { [token: string]: TokenInfo } =>
     },
     uBTC: {
       oracle: {
-        type: OracleType.UBINETIC,
-        name: "BTCUSD",
+        type: OracleType.UBINETIC_LEGACY,
+        name: "BTC",
         decimals: 12,
       },
       configuration: {
@@ -129,6 +151,28 @@ export const loadTokens = (env = process.env): { [token: string]: TokenInfo } =>
         liquidReserveRateF: 15000000000000000,
       },
     },
+    // uBTC: {
+    //   oracle: {
+    //     type: OracleType.UBINETIC,
+    //     name: "BTCUSD",
+    //     decimals: 12,
+    //   },
+    //   configuration: {
+    //     interestRateModel: interestRates.uBTC,
+    //     token_metadata: marketMetadata.uBTC,
+    //     asset: {
+    //       fA2: {
+    //         token_address: (process.env.YOUVES_TOKEN_ADDRESS || undefined) as ContractAddress,
+    //         token_id: "2",
+    //       },
+    //     },
+    //     collateralFactorF: 0,
+    //     reserveFactorF: 400000000000000000,
+    //     maxBorrowRate: 5000000000000,
+    //     threshold: 550000000000000000,
+    //     liquidReserveRateF: 15000000000000000,
+    //   },
+    // },
     // uDEFI: {
     //   oracle: {
     //     type: OracleType.UBINETIC,

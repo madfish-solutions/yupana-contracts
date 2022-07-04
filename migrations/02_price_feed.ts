@@ -42,11 +42,15 @@ module.exports = async (tezos: TezosToolkit) => {
       string
       >;
     storage.metadata = MichelsonMap.fromLiteral({
-      "": Buffer.from("ipfs://QmZTCZ4phYTLfCGs2cvCsVvcSEqpvGFbtze3qAVzbW4M73", "ascii").toString("hex")
+      "": Buffer.from("ipfs://QmSuUM9Y3aqyWNC8okigJZ78sJHsWnqBnQ8b6US5Fxqq2v", "ascii").toString("hex")
     })
     contractAddress = new ContractAddress(await migrate(tezos, code, storage));
     const priceFeedProxy = await tezos.contract.at(contractAddress.toString());
     for (const oracle of config.ORACLES) {
+      if (oracle.address === undefined) {
+        console.log(`[PF] Skipping connection parser for: ${oracle.type}, address not defined`);
+        continue;
+      }
       const connectOracleParams = {
         oracle: oracle.address.toString(),
         oraclePrecision: oracle.precision,
