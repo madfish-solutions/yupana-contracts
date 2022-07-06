@@ -6,6 +6,7 @@ import { migrate, writeToContractsEnvironment } from "../scripts/utils";
 const config = loadConfig();
 import { michelson as code } from "../yupana/build/interestRate.json";
 import storage from "../yupana/storage/interestRate";
+const admin = config.ADMIN
 
 module.exports = async (tezos: TezosToolkit) => {
   const irConfigs = loadInterestRates(process.env);
@@ -22,7 +23,7 @@ module.exports = async (tezos: TezosToolkit) => {
             "ascii"
           ).toString("hex")
         }),
-        admin: await tezos.signer.publicKeyHash(),
+        admin,
         ...irConfigs[tokenKey],
       };
       irAddress = new ContractAddress(

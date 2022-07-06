@@ -4,6 +4,7 @@ import { loadConfig } from "../config";
 import { FA2TokenType } from "../scripts/types";
 
 const config = loadConfig();
+const admin = config.ADMIN
 
 module.exports = async (tezos: TezosToolkit) => {
   if (config.YUPANA.address === undefined)
@@ -48,12 +49,12 @@ module.exports = async (tezos: TezosToolkit) => {
         isFa2Token === undefined
           ? tokenInfo.configuration.asset
           : {
-              fA2: {
-                // weird schema params... details `contract.methods.addMarket().schema`
-                2: isFa2Token.token_address,
-                3: isFa2Token.token_id,
-              },
-            };
+            fA2: {
+              // weird schema params... details `contract.methods.addMarket().schema`
+              2: isFa2Token.token_address,
+              3: isFa2Token.token_id,
+            },
+          };
       const addMarketParams = {
         ...tokenInfo.configuration,
         interestRateModel:
@@ -69,4 +70,11 @@ module.exports = async (tezos: TezosToolkit) => {
     console.log(`Market for ${tokenKey} set`);
     index = index + 1;
   }
+  const batch = await tezos.contract
+    .batch()
+    .withContractCall(contract.methodsObject.setAdmin(admin))
+    .withContractCall(priceFeedProxy.methodsObject.setProxyAdmin(admin))
+    .send()
+  await batch.confirmation();
+  console.log(`Pending change admin to ${admin} for PF and Yupana`);
 };

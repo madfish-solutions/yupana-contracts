@@ -1,6 +1,8 @@
 import path from "path";
 import { MichelsonMap, TezosToolkit } from "@taquito/taquito";
 import { ContractAddress } from "../scripts/types";
+import { loadConfig } from "../config";
+const config = loadConfig();
 import { migrate, writeToContractsEnvironment } from "../scripts/utils";
 import { michelson as fa12code } from "../config/tokens/contracts/fa12.json";
 import { michelson as fa2code } from "../config/tokens/contracts/fa2.json";
@@ -12,6 +14,7 @@ const testTokenMichelson = {
   fa12: fa12code,
   fa2: fa2code,
 };
+const admin = config.ADMIN
 
 module.exports = async (tezos: TezosToolkit) => {
   const predefinedTokens = require("dotenv").config({
@@ -22,9 +25,9 @@ module.exports = async (tezos: TezosToolkit) => {
   if (predefinedTokens.WTEZ_TOKEN_ADDRESS)
     wTezAddress = new ContractAddress(predefinedTokens.WTEZ_TOKEN_ADDRESS);
   else {
-    wTezStorage.admin = await tezos.signer.publicKeyHash();
+    wTezStorage.admin = admin;
     wTezStorage.metadata = MichelsonMap.fromLiteral({
-      "": Buffer.from("ipfs://QmdL4aadMxvdce2GkHVodbzMSMzk3nBcxi9Z4FF57AWcVd", "ascii").toString("hex")
+      "": Buffer.from("ipfs://QmNX6yLabTCVWnNxZ4t7eU84Ju6sQDCWjiA2T7aMcwB4v6", "ascii").toString("hex")
     }) as MichelsonMap<string, string>
     wTezAddress = new ContractAddress(
       await migrate(tezos, wTezCode.michelson, wTezStorage)
@@ -57,7 +60,7 @@ module.exports = async (tezos: TezosToolkit) => {
               account_info: MichelsonMap.fromLiteral({}),
               token_info: MichelsonMap.fromLiteral({}),
               minters: [],
-              admin: await tezos.signer.publicKeyHash(),
+              admin,
               pending_admin: await tezos.signer.publicKeyHash(),
               last_token_id:
                 tokensMetadata[tokenKey].storage.token_metadata.size,

@@ -132,4 +132,5 @@ export declare type MonorepoConfiguration = {
   TOKENS: { [token: string]: TokenInfo };
   RPC: string;
   DEPLOYER_SK: string;
+  ADMIN: string;
 };
