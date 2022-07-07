@@ -16,6 +16,7 @@ export const loadConfig = (env = process.env): MonorepoConfiguration => {
     TOKENS: loadTokens(env),
     RPC: env.RPC,
     DEPLOYER_SK: env.DEPLOYER_SK,
+    ADMIN: env.ADMIN_ADDRESS
   }
 };
 
