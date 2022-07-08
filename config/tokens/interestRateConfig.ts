@@ -4,50 +4,50 @@ export const loadInterestRates = (env = process.env): { [token: string]: IRModel
   return {
     wTEZ: {
       address: (env.WTEZ_IR_ADDRESS || undefined) as ContractAddress,
-      kinkF: "450000000000000000", // 45%
+      kinkF: "600000000000000000", // 60%
       baseRateF: "0", // 0%
-      multiplierF: "2219685438", // 7%/year
-      jumpMultiplierF: "95129375951", // 300%/year
+      multiplierF: "6341958397", // 20%/year
+      jumpMultiplierF: "158548959919", // 500%/year
       reserveFactorF: "0",
     },
     cTez: {
       address: (env.CTEZ_IR_ADDRESS || undefined) as ContractAddress,
-      kinkF: "450000000000000000", // 45%
+      kinkF: "600000000000000000", // 60%
       baseRateF: "0", // 0%
-      multiplierF: "2219685438", // 7%/year
-      jumpMultiplierF: "95129375951", // 300%/year
+      multiplierF: "6341958397", // 20%/year
+      jumpMultiplierF: "158548959919", // 500%/year
       reserveFactorF: "0",
     },
     kUSD: {
       address: (env.KUSD_IR_ADDRESS || undefined) as ContractAddress,
       kinkF: "700000000000000000", // 70%
       baseRateF: "0", // 0%
-      multiplierF: "1268391679", // 4%/year
-      jumpMultiplierF: "31709791983", // 100%/year
+      multiplierF: "5707762557", // 18%/year
+      jumpMultiplierF: "253678335870", // 800%/year
       reserveFactorF: "0",
     },
     uUSD: {
       address: (env.UUSD_IR_ADDRESS || undefined) as ContractAddress,
       kinkF: "700000000000000000", // 70%
       baseRateF: "0", // 0%
-      multiplierF: "1268391679", // 4%/year
-      jumpMultiplierF: "47564687975", // 150%/year
+      multiplierF: "5707762557", // 18%/year
+      jumpMultiplierF: "253678335870", // 800%/year
       reserveFactorF: "0",
     },
     tzBTC: {
       address: (env.TZBTC_IR_ADDRESS || undefined) as ContractAddress,
-      kinkF: "650000000000000000", // 65%
+      kinkF: "700000000000000000", // 70%
       baseRateF: "0", // 0%
-      multiplierF: "2536783358", // 8%/year
-      jumpMultiplierF: "31709791983", // 100%/year
+      multiplierF: "4756468798", // 15%/year
+      jumpMultiplierF: "63419583968", // 200%/year
       reserveFactorF: "0",
     },
     uBTC: {
       address: (env.UBTC_IR_ADDRESS || undefined) as ContractAddress,
-      kinkF: "650000000000000000", // 65%
+      kinkF: "700000000000000000", // 70%
       baseRateF: "0", // 0%
-      multiplierF: "2536783358", // 8%/year
-      jumpMultiplierF: "31709791983", // 100%/year
+      multiplierF: "4756468798", // 15%/year
+      jumpMultiplierF: "63419583968", // 200%/year
       reserveFactorF: "0",
     },
     // uDEFI: {
