@@ -19,7 +19,7 @@ module.exports = async (tezos: TezosToolkit) => {
         ...storage,
         metadata: MichelsonMap.fromLiteral({
           "": Buffer.from(
-            "ipfs://QmXiHMXWNsKyzD1mz1BdKigre2ZAiHbDzhCCW8zyKoEdY7",
+            "ipfs://QmWwKspxGvZ6vGaN2NLtFkxCzg3FYTiWFzj7CfKdBmPVJp",
             "ascii"
           ).toString("hex")
         }),
