@@ -42,7 +42,7 @@ module.exports = async (tezos: TezosToolkit) => {
       string
       >;
     storage.metadata = MichelsonMap.fromLiteral({
-      "": Buffer.from("ipfs://QmSuUM9Y3aqyWNC8okigJZ78sJHsWnqBnQ8b6US5Fxqq2v", "ascii").toString("hex")
+      "": Buffer.from("ipfs://Qmc9b7vJ1KvaMaVB1uu4N4UJ8yc6mLuqqS9V8PvfMm2b9D", "ascii").toString("hex")
     })
     contractAddress = new ContractAddress(await migrate(tezos, code, storage));
     const priceFeedProxy = await tezos.contract.at(contractAddress.toString());

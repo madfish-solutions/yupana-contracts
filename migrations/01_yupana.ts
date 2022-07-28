@@ -11,7 +11,7 @@ import useLambdas from "../yupana/build/lambdas/yTokenLambdas.json";
 
 const metadata = MichelsonMap.fromLiteral({
   "":  Buffer.from(
-    "ipfs://QmNW82xCJxsacuhFhGQk9k5WtL6zMprfB1iFzSV9k5njP4",
+    "ipfs://QmWNvqm8kx2mRTvycjo9J9hLWZNwjCTZGfUEJbWtn2Vn1H",
     "ascii"
   ).toString("hex"),
 });
