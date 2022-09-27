@@ -87,6 +87,7 @@ export enum OracleType {
   UBINETIC_LEGACY = 'ubinetic_old',
   CTEZ = 'ctez',
   WTEZ = 'wtez',
+  SIRS_LP = 'sirs_lp'
 }
 
 export declare type OracleInfo = {

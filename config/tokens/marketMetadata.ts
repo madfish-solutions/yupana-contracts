@@ -68,17 +68,6 @@ const marketMetadata: { [token: string]: MichelsonMap<string, BytesString> } = {
       "ipfs://QmUKZvcriehsUPQSQ8shZtzWnoxSN8eysg1rUZy7ECCrUR"
       ).toString("hex"),
     }) as MichelsonMap<string, BytesString>,
-  //   uDEFI: MichelsonMap.fromLiteral({
-  //     symbol: Buffer.from("y-uDEFI").toString("hex"),
-  //     name: Buffer.from("Yupana uDEFI").toString("hex"),
-  //     decimals: Buffer.from("12").toString("hex"),
-  //     is_transferable: Buffer.from("true").toString("hex"),
-  //     is_boolean_amount: Buffer.from("false").toString("hex"),
-  //     should_prefer_symbol: Buffer.from("false").toString("hex"),
-  //     thumbnailUri: Buffer.from(
-  //       "https://upload.wikimedia.org/wikipedia/commons/3/3b/Teoria_Florio_su_yupana_a_casetta_-_B.png"
-  //   ).toString("hex"),
-  // }) as MichelsonMap<string, BytesString>,
 };
 
 export default marketMetadata;

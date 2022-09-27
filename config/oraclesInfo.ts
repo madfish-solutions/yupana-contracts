@@ -6,7 +6,7 @@ export const loadOraclesInfo = (env = process.env): OracleInfo[] => [
     address: (env.HARBINGER_ADDRESS || undefined) as ContractAddress,
     type: OracleType.HARBINGER,
     precision: 1000000,
-    timestampLimit: 30000000
+    timestampLimit: 1000
   },
   {
     name: "ctez",
@@ -27,14 +27,21 @@ export const loadOraclesInfo = (env = process.env): OracleInfo[] => [
     address: (env.UBINETIC_ADDRESS || undefined) as ContractAddress,
     type: OracleType.UBINETIC,
     precision: 1000000,
-    timestampLimit: 15000,
+    timestampLimit: 1200,
   },
   {
     name: "ubinetic_old",
     address: (env.UBINETIC_LEGACY_ADDRESS || undefined) as ContractAddress,
     type: OracleType.UBINETIC_LEGACY,
     precision: 1000000,
-    timestampLimit: 15000,
+    timestampLimit: 1200,
+  },
+  {
+    name: "sirs_lp",
+    address: (env.SIRS_LP_ORACLE_ADDRESS || undefined) as ContractAddress,
+    type: OracleType.SIRS_LP,
+    precision: 1000000,
+    timestampLimit: 1200,
   },
 ];
 

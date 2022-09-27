@@ -50,14 +50,6 @@ export const loadInterestRates = (env = process.env): { [token: string]: IRModel
       jumpMultiplierF: "63419583968", // 200%/year
       reserveFactorF: "0",
     },
-    // uDEFI: {
-    //   address: (env.UDEFI_IR_ADDRESS || undefined) as ContractAddress,
-    //   kinkF: "650000000000000000", // 65%
-    //   baseRateF: "0", // 0%
-    //   multiplierF: "2219685438", // 7%/year
-    //   jumpMultiplierF: "31709791983", // 100%/year
-    //   reserveFactorF: "0",
-    // },
   }
 };
 

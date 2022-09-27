@@ -139,28 +139,6 @@ export const loadTokens = (env = process.env): { [token: string]: TokenInfo } =>
         liquidReserveRateF: 15000000000000000,
       },
     },
-    // uDEFI: {
-    //   oracle: {
-    //     type: OracleType.UBINETIC,
-    //     name: "DEFI",
-    //     decimals: 12,
-    //   },
-    //   configuration: {
-    //     interestRateModel: interestRates.uDEFI,
-    //     token_metadata: marketMetadata.uDEFI,
-    //     asset: {
-    //       fA2: {
-    //         token_address: (process.env.YOUVES_TOKEN_ADDRESS || undefined) as ContractAddress,
-    //         token_id: "1",
-    //       },
-    //     },
-    //     collateralFactorF: 0,
-    //     reserveFactorF: 400000000000000000,
-    //     maxBorrowRate: 5000000000000,
-    //     threshold: 550000000000000000,
-    //     liquidReserveRateF: 15000000000000000,
-    //   },
-    // },
   }
 };
 export default loadTokens();
