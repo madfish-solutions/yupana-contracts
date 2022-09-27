@@ -32,14 +32,14 @@ module.exports = async (tezos: TezosToolkit) => {
           `./price_feed/build/bytes/${migrationConfig.type}.hex`
         )
       )
-      .toString();
+        .toString();
       batch = batch.withContractCall(
         priceFeedProxy.methodsObject
-          .addParserBytes({ parserType: migrationConfig.type, initFunction: newBytes })
+          .addParserType({ parserType: migrationConfig.type, initFunction: newBytes })
       )
     }
     const oracleAddress = oracleData.address;
-    const parser = await store.oracleParser.get(oracleAddress);
+    const parser = await store.oracleParser.get(oracleAddress.toString());
     if (parser) {
       console.log(`[PF] Skipping connection parser for: ${migrationConfig.type}, already exists ${parser}`);
     }

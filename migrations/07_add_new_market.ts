@@ -53,7 +53,7 @@ const priceFeedProxy = await tezos.contract.at(
       .toString();
       batch = batch.withContractCall(
         priceFeedProxy.methodsObject
-          .addParserBytes({ parserType: marketConfig.oracle.type, initFunction: newBytes })
+          .addParserType({ parserType: marketConfig.oracle.type, initFunction: newBytes })
       )
     }
     const oracleAddress = oracleData.address;
