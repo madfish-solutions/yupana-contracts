@@ -26,8 +26,6 @@
   "scripts": {
     "cli": "ts-node ./scripts/cli.ts",
     "help": "yarn cli --help",
-    "start-sandbox": "yarn cli sandbox --up",
-    "stop-sandbox": "yarn cli sandbox --down",
     "migrate": "yarn cli migrate",
     "compile-pf": "yarn --cwd price_feed run compile-all",
     "compile-y": "yarn --cwd yupana run compile",
