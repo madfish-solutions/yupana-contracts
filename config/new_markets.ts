@@ -14,10 +14,10 @@ export const loadMarketMigrations = (env = process.env) => {
         configuration: {
           interestRateModel: {
             address: (env.USDT_IR_ADDRESS || undefined) as ContractAddress,
-            kinkF: "650000000000000000", // 65%
+            kinkF: "500000000000000000", // 50%
             baseRateF: "0", // 0%
-            multiplierF: "2219685438", // 7%/year
-            jumpMultiplierF: "31709791983", // 100%/year
+            multiplierF: "2487494954", 
+            jumpMultiplierF: "85597887877", 
             reserveFactorF: "0",
           } as IRModel,
           token_metadata: MichelsonMap.fromLiteral({
@@ -28,7 +28,7 @@ export const loadMarketMigrations = (env = process.env) => {
             is_boolean_amount: Buffer.from("false").toString("hex"),
             should_prefer_symbol: Buffer.from("false").toString("hex"),
             thumbnailUri: Buffer.from(
-              ""
+              "ipfs://QmTxM9EEenCdLKq9Zg3aydiQYmPM4Rujyr7YhrqWEQCofr"
             ).toString("hex"),
           }) as MichelsonMap<string, BytesString>,
           asset: {
@@ -37,8 +37,8 @@ export const loadMarketMigrations = (env = process.env) => {
               token_id: "0",
             },
           },
-          collateralFactorF: 0,
-          threshold: 0,
+          collateralFactorF: 600000000000000000,
+          threshold: 650000000000000000,
           reserveFactorF: 300000000000000000,
           maxBorrowRate: 5000000000000,
           liquidReserveRateF: 15000000000000000,
@@ -56,10 +56,10 @@ export const loadMarketMigrations = (env = process.env) => {
         configuration: {
           interestRateModel: {
             address: (env.SIRS_IR_ADDRESS || undefined) as ContractAddress,
-            kinkF: "650000000000000000", // 65%
+            kinkF: "500000000000000000", // 50%
             baseRateF: "0", // 0%
-            multiplierF: "2219685438", // 7%/year
-            jumpMultiplierF: "31709791983", // 100%/year
+            multiplierF: "4291281054",
+            jumpMultiplierF: "83794101777",
             reserveFactorF: "0",
           } as IRModel,
           token_metadata: MichelsonMap.fromLiteral({
@@ -70,7 +70,7 @@ export const loadMarketMigrations = (env = process.env) => {
             is_boolean_amount: Buffer.from("false").toString("hex"),
             should_prefer_symbol: Buffer.from("false").toString("hex"),
             thumbnailUri: Buffer.from(
-              ""
+              "ipfs://QmZ3DCP5RZSRBT2Q8nVc5WHPwS8Qv4TzPraddqoG7bVhBR"
             ).toString("hex"),
           }) as MichelsonMap<string, BytesString>,
           asset: {
@@ -79,8 +79,8 @@ export const loadMarketMigrations = (env = process.env) => {
               token_id: "0",
             },
           },
-          collateralFactorF: 0,
-          threshold: 0,
+          collateralFactorF: 600000000000000000,
+          threshold: 650000000000000000,
           reserveFactorF: 300000000000000000,
           maxBorrowRate: 5000000000000,
           liquidReserveRateF: 15000000000000000,
