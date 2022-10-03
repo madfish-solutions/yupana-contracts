@@ -20,6 +20,7 @@ module.exports = async (tezos: TezosToolkit) => {
   if (config.YUPANA.address === undefined)
     throw new Error("Yupana must be deployed");
   const contract = await tezos.contract.at(config.YUPANA.address.toString());
+  let batch = tezos.contract.batch();
   for (const [marketName, data] of Object.entries(newMarkets)) {
     const marketConfig: TokenInfo = data.market;
     const irAddress = new ContractAddress(marketConfig.configuration.interestRateModel.address);
@@ -43,8 +44,12 @@ module.exports = async (tezos: TezosToolkit) => {
       interestRateModel: irAddress.toString(),
       asset: assetParam,
     };
-    const op = await contract.methodsObject.addMarket(addMarketParams).send();
-    await op.confirmation();
-    console.log(`Market ${data.id} - ${marketName} deployed successfully`);
+    batch = batch.withContractCall(
+      contract.methodsObject.addMarket(addMarketParams)
+    );
+    console.log(`Market ${data.id} - ${marketName} batched`);
   }
+  const op = await batch.send();
+  await op.confirmation();
+  console.log(`New markets added successfully.`);
 }
