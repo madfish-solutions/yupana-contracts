@@ -74,10 +74,7 @@ export const loadMarketMigrations = (env = process.env) => {
             ).toString("hex"),
           }) as MichelsonMap<string, BytesString>,
           asset: {
-            fA2: {
-              token_address: (process.env.SIRS_TOKEN_ADDRESS || undefined) as ContractAddress,
-              token_id: "0",
-            },
+            fA12: (process.env.SIRS_TOKEN_ADDRESS || undefined) as ContractAddress,
           },
           collateralFactorF: 600000000000000000,
           threshold: 650000000000000000,
