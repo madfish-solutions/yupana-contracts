@@ -40,7 +40,7 @@ export const loadOraclesInfo = (env = process.env): OracleInfo[] => [
     name: "sirs_lp",
     address: (env.SIRS_LP_ORACLE_ADDRESS || undefined) as ContractAddress,
     type: OracleType.SIRS_LP,
-    precision: 1000000,
+    precision: 1000000000000,
     timestampLimit: 1200,
   },
 ];
