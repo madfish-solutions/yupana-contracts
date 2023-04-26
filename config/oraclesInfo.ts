@@ -23,6 +23,13 @@ export const loadOraclesInfo = (env = process.env): OracleInfo[] => [
     timestampLimit: 1
   },
   {
+    name: "uxtz",
+    address: "KT1LNbusATaV425DUoWeDRT95PymrkQFg7Ce" as ContractAddress,
+    type: OracleType.UXTZ,
+    precision: 1,
+    timestampLimit: 1
+  },
+  {
     name: "ubinetic",
     address: (env.UBINETIC_ADDRESS || undefined) as ContractAddress,
     type: OracleType.UBINETIC,

@@ -87,6 +87,7 @@ export enum OracleType {
   UBINETIC_LEGACY = 'ubinetic_old',
   CTEZ = 'ctez',
   WTEZ = 'wtez',
+  UXTZ = 'uxtz',
   SIRS_LP = 'sirs_lp'
 }
 
